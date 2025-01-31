@@ -12,7 +12,7 @@ router.get("/", appointmentController.getAppointments);
 router.get("/:id", appointmentController.getAppointmentsByUserId);
 
 // Update an appointment by ID
-// router.put("/:id", appointmentController.updateAppointment);
+router.put("/:id", appointmentController.updateAppointment);
 router.get("/user/:userId", appointmentController.getAppointmentsByUserId);
 
 // Delete an appointment by ID
