@@ -22,7 +22,7 @@ const registerUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-
+    const otpExpiration = Date.now() + 10 * 60 * 1000;
     const newUser = new User({
       FirstName,
       LastName,
@@ -31,6 +31,7 @@ const registerUser = async (req, res) => {
       password: hashedPassword,
       confirmpassword: hashedPassword,
       otp,
+      otpExpiration
     });
 
     await newUser.save();
